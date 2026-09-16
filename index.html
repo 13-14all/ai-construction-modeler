@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Construction Modeler</title>
+    <style>
+      html, body, #app { height: 100%; margin: 0; overflow: hidden; }
+      body { font-family: system-ui, sans-serif; }
+      #hud {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        padding: 14px 16px;
+        background: rgba(15, 20, 30, 0.82);
+        color: #dbe4f0;
+        border-radius: 8px;
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 300px;
+        pointer-events: none;
+        user-select: none;
+      }
+      #hud code { color: #7fd0ff; }
+      #hud .kbd {
+        display: inline-block;
+        padding: 0 5px;
+        border: 1px solid #3a4658;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+      #status {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        padding: 6px 12px;
+        background: rgba(15, 20, 30, 0.82);
+        color: #9fd6a0;
+        border-radius: 6px;
+        font: 12px ui-monospace, monospace;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="hud">
+      <strong>AI Construction Modeler</strong> — scaffold<br />
+      Orbit: <span class="kbd">drag</span> &nbsp;·&nbsp; Wall: <span class="kbd">1</span> &nbsp;·&nbsp; +door/window: <span class="kbd">2</span> &nbsp;·&nbsp; L-corner: <span class="kbd">3</span> &nbsp;·&nbsp; T-junction: <span class="kbd">4</span><br />
+      Select: <span class="kbd">click wall</span> &nbsp;·&nbsp; Move: <span class="kbd">drag</span> (1″ snap, axis-lock) &nbsp;·&nbsp; Deselect: <span class="kbd">Esc</span><br />
+      Try in console:<br />
+      <code>window.app.commands.exec({ type: 'build_wall', params: { start: { x: 0, y: 0 }, end: { x: 192, y: 0 }, openings: [{ kind: 'door', width: 36, height: 80, x: 48 }] } })</code>
+    </div>
+    <div id="status">Scene + command system + build_wall ready</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
